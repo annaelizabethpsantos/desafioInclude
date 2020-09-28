@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <title>pagPosts</title>
+        <script type="text/javascript">
+            function addPost() {
+            var novoPost = document.createElement("div");
+            var tituloPost = document.createElement("h3");
+            var texto = document.createElement("p");
+            var date = document.createElement("p");
+            var conteudo = document.getElementById("conteudo");
+            var conteudoTitulo = document.getElementById("titulo");
+            tituloPost.innerHTML = conteudoTitulo.value;
+            texto.innerHTML = conteudo.value;
+            var data = new Date();
+            date.innerHTML = data.getDate().toString() + '/' + data.getMonth().toString() + '/' + data.getFullYear().toString();
+            novoPost.appendChild(tituloPost);
+            novoPost.appendChild(texto);
+            novoPost.appendChild(date);
+
+            document.getElementById("lista").appendChild(novoPost);
+            }
+        </script>
+    </head>
+
+    <style>
+        #tituloPagina{
+            color: rgb(100, 43, 62);
+        }
+        #conteudoPostagens{
+            float: left;
+            width: 20%;
+        }
+        #postagens{
+            float: right;
+            width: 80%;
+            border-radius: 10%;
+        }
+        .fundo{
+            background-image: url("https://www.texneo.com/img/posts/411-estampas-florais-para-o-inverno-2019.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        h2{
+            color: rgb(100, 43, 62);
+        }
+    </style>
+
+
+    <body class="fundo">
+        <div id="conteudoPostagens">
+            <h1 id="tituloPagina">
+                <strong>Página de Posts</strong>
+            </h1><br />
+            <label for="titulo"><h2>Título:</h2></label>
+            <input type="text" id="titulo" maxlength="50" />
+            <br>
+            <label for="conteudo"><h2>Conteúdo: </h2></label>
+            <input type="text" id="conteudo" maxlength="200" />
+            <br>
+            <br>
+            <button onClick="addPost()">Postar</button><br />
+            <br>
+            <br>
+            <h2><a href = "./menu.html">Voltar</a></h2>
+        </div>
+        <div id="postagens">
+            <h2>Postagens:</h2> <br>
+            <div id="lista"></div>
+        </div>
+    </body>
+
+</html> 
