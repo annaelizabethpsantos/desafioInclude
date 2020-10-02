@@ -7,21 +7,34 @@
         <title>pagPosts</title>
         <script type="text/javascript">
             function addPost() {
+
             var novoPost = document.createElement("div");
-            var tituloPost = document.createElement("h3");
-            var texto = document.createElement("p");
-            var date = document.createElement("p");
-            var conteudo = document.getElementById("conteudo");
+
+            var tituloPost = document.createElement("h2");
             var conteudoTitulo = document.getElementById("titulo");
             tituloPost.innerHTML = conteudoTitulo.value;
-            texto.innerHTML = conteudo.value;
-            var data = new Date();
-            date.innerHTML = data.getDate().toString() + '/' + data.getMonth().toString() + '/' + data.getFullYear().toString();
             novoPost.appendChild(tituloPost);
+
+            var texto = document.createElement("p");
+            var conteudo = document.getElementById("conteudo");
+            texto.innerHTML = conteudo.value;
             novoPost.appendChild(texto);
-            novoPost.appendChild(date);
 
             document.getElementById("lista").appendChild(novoPost);
+
+            }
+            
+            function addData(){
+
+                var dataPost = document.createElement("div");
+
+                var date = document.createElement("p");
+                var data = new Date();
+                date.innerHTML = data.getDate().toString() + '/' + data.getMonth().toString() + '/' + data.getFullYear().toString();
+                dataPost.appendChild(date);
+
+                document.getElementById("data").appendChild(dataPost);
+
             }
         </script>
     </head>
@@ -33,11 +46,19 @@
         #conteudoPostagens{
             float: left;
             width: 20%;
+            font-family: monospace;
         }
         #postagens{
             float: right;
             width: 80%;
             border-radius: 10%;
+            font-family: monospace;
+        }
+        #data{
+            background-color: rgb(228, 197, 204);
+            border-radius: 20%;
+            width: 70px;
+            font-size: 15px;
         }
         .fundo{
             background-image: url("https://www.texneo.com/img/posts/411-estampas-florais-para-o-inverno-2019.jpg");
@@ -62,7 +83,7 @@
             <input type="text" id="conteudo" maxlength="200" />
             <br>
             <br>
-            <button onClick="addPost()">Postar</button><br />
+            <button onClick="addPost(addData())">Postar</button><br />
             <br>
             <br>
             <h2><a href = "./menu.html">Voltar</a></h2>
@@ -70,6 +91,7 @@
         <div id="postagens">
             <h2>Postagens:</h2> <br>
             <div id="lista"></div>
+            <div id="data"></div>
         </div>
     </body>
 
